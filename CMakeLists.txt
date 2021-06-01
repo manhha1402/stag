@@ -17,7 +17,11 @@ CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-find_package(OpenCV REQUIRED)
+###OpenCV from source####
+find_package(OpenCV REQUIRED NO_MODULE PATHS /usr/local NO_DEFAULT_PATH)
+MESSAGE("OpenCV version : ${OpenCV_VERSION}")
+MESSAGE("OpenCV DIR : ${OpenCV_DIR}")
+
 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 file(GLOB SRC_FILE1 "src/*.c*")
